@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="images/listIcon.png" alt="listIconPic" id="listIcon" width="18px">
+            <h1 id="heading">Music Player</h1>
+            <img src="images/heartOutlineIcon.png" id="like" alt="listIconPic" width="18px">
+        </div>
+        <div class="main">
+            <audio src="songs/song1.mp3" id="songTag"></audio>
+            <img src="images/discIcon.png" class="diskImage" alt="discIconPic">
+            <div class="songDetails">
+                <h4 id="songName">Aashiqui Aa Gayi</h4>
+                <p id="artistName">Arijit Singh</p>
+            </div>
+        </div>
+        <div class="footer">
+            <input type="range" id="songRange" min="0" >
+            <div class="allButtons">
+                <img src="images/loopOnIcon.png" id="loopIcon" alt="loopOnIconPic" width="25px">
+                <img src="images/previousIcon.png" alt="previousIconPic" id="prevBtn" width="30px">
+                <img src="images/playIcon.png" alt="playIconPic" id="playBtn" width="50px">
+                <img src="images/nextIcon.png" alt="nextIconPic" id="nextBtn" width="30px">
+                <img src="images/volumeIcon.png" id="volumeBtn" alt="volumeIconPic" width="25px">
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
