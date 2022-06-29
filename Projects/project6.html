@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project : </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: blueviolet;
+            height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        .counter {
+            background-color: yellow;
+            border-radius: 20px;
+            height: 20vh;
+            width: 30vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="counter" data-target="4000"></div>
+        <div class="counter" data-target="10000"></div>
+        <div class="counter" data-target="500"></div>
+
+    </div>
+
+
+    <script>
+        const counter = document.querySelectorAll('.counter');
+        
+        counter.forEach(count => {
+         count.innerHTML = 0;
+              
+           
+         const updateCounter = () => {
+        
+            const targetCount  = +count.getAttribute('data-target');
+        
+            const startingCount = Number(count.innerHTML);
+           
+            let incr = targetCount / 100;
+
+            if(startingCount < targetCount) {
+                count.innerHTML = `${startingCount + incr}`;
+                setTimeout(updateCounter , 10);
+            }
+            else {
+                count.innerHTML = targetCount;
+            }
+
+         }
+updateCounter();
+        });
+    </script>
+</body>
+</html>

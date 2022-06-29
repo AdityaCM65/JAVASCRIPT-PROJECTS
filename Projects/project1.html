@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: red;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body .container {
+            background-color: antiquewhite;
+            height: 70vh;
+            width: 60vw;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+        body .header {
+            /* background-color: rgb(234, 180, 180); */
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        body .header img {
+            border-radius: 20px;
+        }
+
+        body .footer {
+            background-color: rgb(213, 213, 231);
+            height: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="contain">
+      
+    </div>
+
+    <script>
+
+        const container = document.getElementById('contain');
+
+
+const request = new XMLHttpRequest();
+request.open('GET' , "https://restcountries.com/v3.1/name/nepal");
+request.send();
+
+
+request.addEventListener('load' , function() {
+let data  = JSON.parse(this.responseText);
+let myCountry = data[0].name.common;
+let myCountryPopulation = data[0].population;
+let myCountryCapital = data[0].capital[0];
+let myCountryFlag = data[0].flags.png;
+let myCountryLanguage = data[0].languages.nep;
+
+// console.log(data[0].name.common); 
+// console.log(data[0].population);
+// console.log(data[0].capital[0]);
+// console.log(data[0].flags.png);
+// console.log(data[0].languages.nep);
+
+let htmlData = `  <div class="header">
+            <img src="${myCountryFlag}" width="150px">
+            <h1>${myCountry}</h1>
+            <H4>Capital : ${myCountryCapital}</H4>
+        </div>
+        <hr>
+        <div class="footer">
+            <h6 class="left">Native Language : ${myCountryLanguage}</h6>
+            <h6 class="right">Population : ${myCountryPopulation}</h6>
+        </div>`;
+
+container.insertAdjacentHTML('afterbegin' , htmlData);
+
+
+
+});
+
+
+// const request = new XMLHttpRequest();
+// request.open('GET' , "https://data.covid19india.org/data.json");
+// request.send();
+
+// request.addEventListener('load', function() {
+
+//     let data = JSON.parse(this.responseText);
+//     // console.log(data.statewise[21].state);
+//     let myState = data.statewise[21];
+//     console.log(myState); 
+
+// //     active: "62452"
+// // confirmed: "6396805"
+// // deaths: "135139"
+// // deltaconfirmed: "4145"
+// // deltadeaths: "100"
+// // deltarecovered: "5811"
+// // lastupdatedtime: "13/08/2021 23:27:22"
+// // migratedother: "3470"
+// // recovered: "6195744"
+// // state: "Maharashtra"
+
+// let htmlData = `<h1> ${myState.active} </h1>`;
+
+// container.insertAdjacentHTML('afterbegin' , htmlData);
+
+// });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cricket Score</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            color: black;
+        }
+
+        body {
+
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/cricketStadiumBgImg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+
+        }
+
+        header {
+            height: 10vh;
+            /* background-color: yellow; */
+            width: 100vw;
+            position: relative;
+            top: 0px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        header a {
+            text-decoration: none;
+        }
+
+        header a h1 {
+            color: white;
+            font-size: 25px;
+            letter-spacing: 1px;
+        }
+
+        header .nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 30vw;
+
+        }
+
+        header .nav ul li {
+            list-style: none;
+        }
+
+        header .nav ul li a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        header .nav ul li a select {
+            /* border: 2px solid blue; */
+            border: none;
+            background-color: transparent;
+            border-radius: 20px;
+            padding: 5px;
+            color: white;
+            outline: none;
+            font-size: 15px;
+
+        }
+
+        header .nav ul li a select option {
+            text-align: center;
+            background-color: transparent;
+            color: black;
+
+
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 90vh;
+        }
+
+        main .container {
+            background-color: white;
+            height: 55vh;
+            width: 60vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        main .container .heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5vh;
+            width: 55vw;
+        }
+
+        main .container .heading p {
+            color: red;
+            font-weight: 800;
+            letter-spacing: 1px;
+            position: relative;
+
+        }
+
+        main .container .heading h3 {
+            color: blueviolet;
+        }
+
+        main .container .heading p::after {
+            content: '';
+            background-color: red;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            left: 0px;
+            bottom: 0px;
+            animation: liveAnim 2s linear infinite;
+        }
+
+        @keyframes liveAnim {
+
+            0% {
+                width: 0%;
+
+            }
+
+            50% {
+                width: 50%;
+            }
+
+            100% {
+                width: 100%;
+            }
+
+        }
+
+
+        main .container .teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 55vw;
+            height: 35vh;
+        }
+
+
+        main .container .teams .team {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: row;
+            height: 30vh;
+            width: 25vw;
+        }
+
+        main .container .teams .team .firstTeamName {
+            color: blue;
+        }
+
+        main .container .teams .team .secondTeamName {
+            color: orange;
+        }
+
+        main .container .teams .team .runDetails {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            height: 6vh;
+        }
+
+        main .container .teams .team .runDetails h2{
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 18px;
+            display: block;
+        }
+
+        main .container .teams .team .runDetails p {
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 11px;
+        }
+
+        main .container .result {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 5vh;
+        }
+
+        main .container .result .matchStatus {
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="cricketScore.html">
+            <h1>Live Score</h1>
+        </a>
+        <div class="nav">
+            <ul>
+                <li><a href="cricketScore.html">Home</a></li>
+                <li><a href="#"><select class="matchlist">
+                            <option value="Select Tournament">Select Tournament</option>
+                            <option value="International">International</option>
+                            <option value="Domestic">Domestic</option>
+                            <option value="League">League</option>
+                        </select></a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="heading">
+                <h3 class="seriesName">India Tour Of Ireland</h3>
+                <p>Live</p>
+            </div>
+            <div class="teams">
+                <div class="team firstTeam">
+                    <h1 class="firstTeamName">India</h1>
+                    <div class="runDetails">
+             <h2 class="firstTeamRuns"></h2>
+                        <p class="firstTeamOvers">( 00.0 )</p>
+                    </div>
+                </div>
+                <div class="team firstTeam">
+                    <h1 class="secondTeamName">India</h1>
+                    <div class="runDetails">
+                   <h2 class="secondTeamRuns"></h2>
+                        <p class="secondTeamOvers">( 00.0 )</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result">
+                <h1 class="matchStatus">India won by 7 wkts - Match reduced to 12 overs per side due to rain</h1>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+
+
+    //  const request = fetch("https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/40381/scard",{
+    //         "method": "GET",
+    //         "headers": {
+    //             "X-RapidAPI-Key": "b4f2e18f40msh9835158db4b7e3bp10927ajsnf2f527ebe681",
+    //             "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com"
+    //         }
+    //     }).then((res) => {
+    //         return res.json();
+    //     }).then((data) => {
+    //         console.log(data);
+    //     });
+
+        const matchStatus = document.querySelector('.matchStatus');
+        const firstTeamName = document.querySelector('.firstTeamName');
+        const secondTeamName = document.querySelector('.secondTeamName');
+        const firstTeamRuns = document.querySelector('.firstTeamRuns');
+        const secondTeamRuns = document.querySelector('.secondTeamRuns');
+        const firstTeamWickets = document.querySelector('#firstTeamWickets');
+        const secondTeamWickets = document.querySelector('#secondTeamWickets');
+        const firstTeamOvers = document.querySelector('.firstTeamOvers');
+        const secondTeamOvers = document.querySelector('.secondTeamOvers');
+
+
+ 
+
+
+
+        const request = fetch("https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent", {
+            "method": "GET",
+            "headers": {
+                "X-RapidAPI-Key": "b4f2e18f40msh9835158db4b7e3bp10927ajsnf2f527ebe681",
+                "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com"
+            }
+        }).then((res) => {
+            return res.json();
+        }).then((data) => {
+
+
+
+
+            matchStatus.innerHTML = data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchInfo.status;
+            firstTeamName.innerHTML = data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchInfo.team1.teamName;
+            secondTeamName.innerHTML = data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchInfo.team2.teamName;
+
+            firstTeamRuns.innerHTML =` ${data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team1Score.inngs1.runs} / ${data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team1Score.inngs1.wickets}`;
+
+            secondTeamRuns.innerHTML =` ${data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team2Score.inngs1.runs} / ${data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team2Score.inngs1.wickets}`;
+
+            firstTeamOvers.innerHTML = data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team1Score.inngs1.overs;
+            secondTeamOvers.innerHTML = data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team2Score.inngs1.overs;
+
+
+            // firstTeamWickets.innerHTML = data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team1Score;
+            // secondTeamWickets.innerHTML = data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore.team2Score.inngs1.wickets;
+
+
+            // console.log(data.typeMatches[0].seriesMatches[2].seriesAdWrapper.matches[0].matchScore);
+            console.log(data.typeMatches[0]);
+
+        }).catch((error) => {
+            console.log("Erroe Occured");
+        });
+
+    </script>
+</body>
+
+</html>

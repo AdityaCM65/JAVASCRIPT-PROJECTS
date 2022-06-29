@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Project : Search Bar Using HTML / CSS / JS </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(225, 228, 243);
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: white;
+            height: 50vh;
+            width: 60vw;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+
+        .container span {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: blue;
+            height: 9vh;
+            width: 58vw;
+            border-radius: 13px;
+        }
+
+        .container #searchCity {
+            padding: 15px;
+            width: 40vw;
+            border-radius: 13px;
+            border: 1px solid blue;
+
+        }
+
+        .container #searchCity:hover {
+            background-color: rgb(243, 227, 227);
+        }
+
+        .container img {
+            width: 30px;
+            padding: 9px;
+            background-color: white;
+            border-radius: 15px;
+
+        }
+
+        .container img:hover {
+            background-color: rgb(216, 184, 237);
+
+        }
+
+        .container table {
+            width: 100%;
+            /* border: 1px solid blue; */
+            text-align: center;
+        }
+
+        .container table tr:hover {
+            background-color: rgb(124, 0, 232);
+            color: white;
+            transition: 0.6s;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <span><input type="text" id="searchCity" onkeyup="myFun()" placeholder="Search Your City..."><img
+                src="images/searchIcon.png" alt="searchIconPic" width="100px"></span>
+
+        <table id="myTable">
+
+            <tr>
+                <th>City Name</th>
+                <th>District</th>
+
+            </tr>
+
+
+            <tr class="list">
+                <td>Amalner</td>
+                <td>Jalgaon</td>
+            </tr>
+            <tr class="list">
+                <td>Burhanpur</td>
+                <td>Burhanpur</td>
+            </tr>
+            <tr class="list">
+                <td>Chopda</td>
+                <td>Jalgaon</td>
+            </tr>
+
+            <tr class="list">
+                <td>Dhule</td>
+                <td>Dhule</td>
+            </tr>
+            <tr class="list">
+                <td>Shirpur</td>
+                <td>Dhule</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+
+              const myFun = () => {
+
+           let searchCity = document.getElementById('searchCity').value.toUpperCase();
+           let myTable = document.getElementById('myTable');
+           let tr = myTable.getElementsByTagName('tr');
+
+        //    console.log(tr);
+
+        for(var i = 1; i < tr.length; i++) {
+            var td = tr[i].getElementsByTagName('td')[0];
+
+            let element = td.innerHTML.toUpperCase();
+
+
+            if(element.indexOf(searchCity) > -1) {
+                tr[i].style.display = '';
+            }
+            else {
+                tr[i].style.display = 'none';
+
+            }
+
+
+        }
+
+
+
+              };
+
+        const list = document.getElementsByClassName('list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click', () => {
+
+                let td = list[i].getElementsByTagName('td')[0];
+             
+
+        document.getElementById('searchCity').value = td.innerHTML;
+
+
+            });
+        }
+    </script>
+</body>
+
+</html>

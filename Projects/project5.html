@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project : Convert Celcius to Farhenheit or Farhenheit to Celcius</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(233, 233, 115);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            width: 70vw;
+            height: 20vh;
+            border-radius: 20px;
+        }
+
+        ]
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h5 style="padding:10px;">Please Enter the Temperature you'd like to Convert</h5>
+        <span><input type="text" id="num"><select id="selectBox">
+                <option value="select">Select One</option>
+                <option value="cel">Celcius</option>
+                <option value="far">Farhenheit</option>
+
+            </select></span><br>
+        <input type="button" value="submit" onclick="myForm()">
+        <p id="msg"></p>
+
+    </div>
+    <script>
+
+
+
+        const myForm = () => {
+
+            const num = document.getElementById('num').value;
+            const selectBox = document.getElementById('selectBox');
+            let result;
+            const item = selectBox.options[selectBox.selectedIndex].value;
+
+            const celToFah = (cel) => {
+                let fah = Math.round((cel * 9 / 5) + 32);
+                return fah;
+            };
+
+
+            const fahToCel = (fah) => {
+                let cel = Math.round((fah - 32) * 5 / 9);
+                return cel;
+            };
+
+            if (item === 'cel') {
+                result = celToFah(num);
+                document.getElementById('msg').innerHTML = ` ${result} Fahrenheit`;
+            }
+            else {
+                result = fahToCel(num);
+                document.getElementById('msg').innerHTML = ` ${result} Celcius`;
+            }
+
+
+        };
+
+    </script>
+</body>
+
+</html>

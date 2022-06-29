@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project : Animated Thermometer</title>
+    <script src="https://kit.fontawesome.com/b6c2bc5d55.js" crossorigin="anonymous"></script>
+   <style>
+       *{
+        margin: 0;
+        padding: 0;
+       }
+       body {
+           height: 100vh;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+   </style>
+</head>
+<body>
+   
+ 
+
+<h1>I am Thermomter <span><i  id="icon" class="fa-solid fa-temperature-empty"></i></span></h1>
+
+
+<script>
+
+// <i class="fa-solid fa-temperature-empty"></i>
+// <i class="fa-solid fa-temperature-quarter"></i>
+// <i class="fa-solid fa-temperature-half"></i>
+// <i class="fa-solid fa-temperature-full"></i>
+
+const icon = document.querySelector('#icon');
+const setIcon = () => {
+
+setTimeout(() => {
+    icon.classList = "fa-solid fa-temperature-empty";
+    icon.style.color = "greenyellow";
+} , 1000);
+
+
+setTimeout(() => {
+    icon.classList = "fa-solid fa-temperature-quarter";
+} , 2000);
+
+
+
+setTimeout(() => {
+    icon.classList = "fa-solid fa-temperature-half";
+} , 3000);
+
+
+
+setTimeout(() => {
+    icon.classList = "fa-solid fa-temperature-full";
+    icon.style.color = "red";
+
+} , 4000);
+
+
+};
+
+setIcon();
+
+setInterval(setIcon , 5000);
+
+</script>
+</body>
+</html>
